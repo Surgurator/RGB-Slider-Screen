@@ -27,8 +27,8 @@ class ViewController: UIViewController {
         startViewColor()
     }
     
-    @IBAction func uniteIBActionForSlider(){
-        sliderSwitch(slider: redSlider, greenSlider, blueSlider)
+    @IBAction func uniteIBActionForSlider(_ sender: UISlider){
+        sliderSwitch(slider: sender)
         startViewColor()
     }
     

@@ -87,7 +87,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="Vtg-a5-NJH"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="uniteIBActionForSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="DFy-9g-ygU"/>
+                                                    <action selector="uniteIBActionForSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Fpq-nm-BEn"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ich-m1-5ED">
@@ -97,7 +97,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="paq-G3-GbD"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="uniteIBActionForSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="1pX-BP-pcI"/>
+                                                    <action selector="uniteIBActionForSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="IiT-1H-Dx4"/>
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Us8-he-KIb">
@@ -107,7 +107,7 @@
                                                     <constraint firstAttribute="width" constant="200" id="80g-aV-QDb"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="uniteIBActionForSlider" destination="BYZ-38-t0r" eventType="valueChanged" id="EbO-Y0-Qxr"/>
+                                                    <action selector="uniteIBActionForSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="Yzw-d6-QMH"/>
                                                 </connections>
                                             </slider>
                                         </subviews>
