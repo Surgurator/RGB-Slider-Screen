@@ -22,46 +22,35 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sutupActionRedSlider()
-        sutupActionGreenSlider()
-        sutupActionBlueSlider()
-        viewColor.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0)
-        
-    }
-
-    @IBAction func actionRedSlider(){
-        redValue.text = String(format: "%.02f", redSlider.value)
-        viewColor.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+        viewColor.layer.cornerRadius = 20
+        sliderSwitch(slider: redSlider, greenSlider, blueSlider)
+        startViewColor()
     }
     
-    @IBAction func actionGreenSlider(){
-        greenValue.text = String(format: "%.02f", greenSlider.value)
-        viewColor.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+    @IBAction func uniteIBActionForSlider(){
+        sliderSwitch(slider: redSlider, greenSlider, blueSlider)
+        startViewColor()
     }
     
-    @IBAction func actionBlueSlider(){
-        blueValue.text = String(format: "%.02f", blueSlider.value)
-        viewColor.backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-    }
-  
-    private func sutupActionRedSlider(){
-        redSlider.value = 0.0
-        redSlider.minimumValue = 0.0
-        redSlider.maximumValue = 1.0
-    }
-    
-    private func sutupActionGreenSlider(){
-        greenSlider.value = 0.0
-        greenSlider.minimumValue = 0.0
-        greenSlider.maximumValue = 1.0
+    private func sliderSwitch(slider: UISlider...){
+        for colorSlider in slider{
+            switch colorSlider {
+                    case redSlider:
+                        redValue.text = String(format: "%.02f", redSlider.value)
+                    case greenSlider:
+                        greenValue.text = String(format: "%.02f", greenSlider.value)
+                    default:
+                        blueValue.text = String(format: "%.02f", blueSlider.value)
+                    }
+        }
     }
     
-    private func sutupActionBlueSlider(){
-        blueSlider.value = 0.0
-        blueSlider.minimumValue = 0.0
-        blueSlider.maximumValue = 1.0
+    private func startViewColor (){
+        viewColor.backgroundColor = UIColor(
+            red: CGFloat(redSlider.value),
+            green: CGFloat(greenSlider.value),
+            blue: CGFloat(blueSlider.value),
+            alpha: 1
+        )
     }
-    
- 
-    
 }
