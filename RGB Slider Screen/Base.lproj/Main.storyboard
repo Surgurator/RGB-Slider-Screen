@@ -176,6 +176,17 @@
                                     <action selector="doneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JaB-YS-YOB"/>
                                 </connections>
                             </button>
+                            <toolbar hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KA5-cg-Cwo">
+                                <rect key="frame" x="0.0" y="854" width="430" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem systemItem="done" id="QOq-Zy-goa">
+                                        <connections>
+                                            <action selector="toolBarDoneButton:" destination="BYZ-38-t0r" id="bMl-2b-GNe"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.32707055883536762" green="0.43755607397894941" blue="0.54124609268072876" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -205,6 +216,7 @@
                         <outlet property="redSlider" destination="nyh-Jb-2Fp" id="AbN-EG-TCO"/>
                         <outlet property="redValue" destination="pjj-QI-FUk" id="Nfl-2P-BES"/>
                         <outlet property="redValueTF" destination="CLP-d4-fkJ" id="uC7-c2-vdS"/>
+                        <outlet property="toolBar" destination="KA5-cg-Cwo" id="JD9-A9-QY1"/>
                         <outlet property="viewColor" destination="j7W-ic-baF" id="UDX-nV-rVC"/>
                     </connections>
                 </viewController>

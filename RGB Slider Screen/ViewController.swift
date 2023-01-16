@@ -23,15 +23,16 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var greenValueTF: UITextField!
     @IBOutlet var blueValueTF: UITextField!
     
+    @IBOutlet var toolBar: UIToolbar!
     
     @IBOutlet var doneButton: UIButton!
     
     var backGround: UIColor!
     var delegate: ViewContorllerDelegate!
     
-    var redSliderValue2: Float!
-    var greenSliderValue2: Float!
-    var blueSliderValue2: Float!
+    var redSliderValueVC: Float!
+    var greenSliderValueVC: Float!
+    var blueSliderValueVC: Float!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,20 +40,20 @@ class ViewController: UIViewController, UITextFieldDelegate{
         doneButton.layer.cornerRadius = 10
         viewColor.backgroundColor = backGround
         viewColor.layer.cornerRadius = 20
+        
         sliderSwitch(slider: redSlider, greenSlider, blueSlider)
+        
         navigationItem.setHidesBackButton(true, animated: false)
         redValueTF.delegate = self
         greenValueTF.delegate = self
         blueValueTF.delegate = self
-        redValueTF.keyboardType = .numberPad
-        greenValueTF.keyboardType = .numberPad
-        blueValueTF.keyboardType = .numberPad
         
-        
-        
+        texFieldsSettings()
     }
-    
-    
+
+ 
+   
+    // MARK: IBActions
     @IBAction func doneButton(_ sender: UIButton) {
         delegate.setNewBackGraundForMainVC(
             backGround: UIColor(
@@ -68,38 +69,63 @@ class ViewController: UIViewController, UITextFieldDelegate{
     @IBAction func uniteIBActionForSlider(_ sender: UISlider){
         sliderSwitch(slider: sender)
         sliderViewColor()
-        
     }
     
-    
-    
+    @IBAction func toolBarDoneButton(_ sender: UIBarButtonItem) {
+        textFieldDidEndEditing(redValueTF)
+        textFieldDidEndEditing(greenValueTF)
+        textFieldDidEndEditing(blueValueTF)
+        toolBar.isHidden = true
+        redValueTF.resignFirstResponder()
+        greenValueTF.resignFirstResponder()
+        blueValueTF.resignFirstResponder()
+    }
+    // MARK: Private funcs
+    private func texFieldsSettings() {
+        redValueTF.keyboardType = .decimalPad
+        greenValueTF.keyboardType = .decimalPad
+        blueValueTF.keyboardType = .decimalPad
+        
+        redValueTF.inputAccessoryView = toolBar
+        greenValueTF.inputAccessoryView = toolBar
+        blueValueTF.inputAccessoryView = toolBar
+        
+        redValueTF.adjustsFontSizeToFitWidth = true
+        redValueTF.minimumFontSize = 12
+        greenValueTF.adjustsFontSizeToFitWidth = true
+        greenValueTF.minimumFontSize = 12
+        blueValueTF.adjustsFontSizeToFitWidth = true
+        blueValueTF.minimumFontSize = 12
+        
+    }
     private func sliderSwitch(slider: UISlider...){
         for colorSlider in slider{
             switch colorSlider {
             case redSlider:
                 redValue.text = String(format: "%.02f", redSlider.value)
-                redSliderValue2 = redSlider.value
+                redSliderValueVC = redSlider.value
             case greenSlider:
                 greenValue.text = String(format: "%.02f", greenSlider.value)
-                greenSliderValue2 = greenSlider.value
+                greenSliderValueVC = greenSlider.value
             default:
                 blueValue.text = String(format: "%.02f", blueSlider.value)
-                blueSliderValue2 = blueSlider.value
+                blueSliderValueVC = blueSlider.value
             }
         }
     }
     
     private func sliderViewColor() {
         viewColor.backgroundColor = UIColor(
-            red: CGFloat(redSliderValue2),
-            green: CGFloat(greenSliderValue2),
-            blue: CGFloat(blueSliderValue2),
+            red: CGFloat(redSliderValueVC),
+            green: CGFloat(greenSliderValueVC),
+            blue: CGFloat(blueSliderValueVC),
             alpha: 1
         )
-        redSlider.value = redSliderValue2
-        greenSlider.value = greenSliderValue2
-        blueSlider.value = blueSliderValue2
+        redSlider.value = redSliderValueVC
+        greenSlider.value = greenSliderValueVC
+        blueSlider.value = blueSliderValueVC
     }
+    
     private func sliderTransfer() {
         viewColor.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
@@ -107,10 +133,13 @@ class ViewController: UIViewController, UITextFieldDelegate{
             blue: CGFloat(blueSlider.value),
             alpha: (1))
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        redValueTF.becomeFirstResponder()
-//        redValueTF.keyboardType = .numberPad
+    // MARK: Text field
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+      toolBar.isHidden = false
+        return true
     }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField {
         case redValueTF:

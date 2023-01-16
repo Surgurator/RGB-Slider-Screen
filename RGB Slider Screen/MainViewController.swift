@@ -12,9 +12,9 @@ protocol ViewContorllerDelegate {
 }
 
 class MainViewController: UIViewController {
-    var redSliderValue: Float = 1
-    var greenSliderValue: Float = 1
-    var blueSliderValue: Float = 1
+    var redSliderValueMainVC: Float = 1
+    var greenSliderValueMainVC: Float = 1
+    var blueSliderValueMainVC: Float = 1
     @IBOutlet var mainViewColor: UIView!
     
     override func viewDidLoad() {
@@ -26,9 +26,9 @@ class MainViewController: UIViewController {
 viewController.backGround = mainViewColor.backgroundColor
         viewController.delegate = self
 
-        viewController.redSliderValue2 = redSliderValue
-        viewController.greenSliderValue2 = greenSliderValue
-        viewController.blueSliderValue2 = blueSliderValue
+        viewController.redSliderValueVC = redSliderValueMainVC
+        viewController.greenSliderValueVC = greenSliderValueMainVC
+        viewController.blueSliderValueVC = blueSliderValueMainVC
     }
     @IBAction func settingButtonPressed(_ sender: UIBarButtonItem) {
     }
@@ -36,9 +36,9 @@ viewController.backGround = mainViewColor.backgroundColor
 extension MainViewController: ViewContorllerDelegate {
     func setNewBackGraundForMainVC(backGround: UIColor, red: Float, green: Float, blue: Float) {
         mainViewColor.backgroundColor = backGround
-        redSliderValue = red
-        greenSliderValue = green
-        blueSliderValue = blue
+        redSliderValueMainVC = red
+        greenSliderValueMainVC = green
+        blueSliderValueMainVC = blue
     }
 }
 
