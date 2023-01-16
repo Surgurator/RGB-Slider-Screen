@@ -37,6 +37,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         sliderViewColor()
+        
         doneButton.layer.cornerRadius = 10
         viewColor.backgroundColor = backGround
         viewColor.layer.cornerRadius = 20

@@ -19,8 +19,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? ViewController else { return }
 viewController.backGround = mainViewColor.backgroundColor
@@ -30,9 +30,11 @@ viewController.backGround = mainViewColor.backgroundColor
         viewController.greenSliderValueVC = greenSliderValueMainVC
         viewController.blueSliderValueVC = blueSliderValueMainVC
     }
+    
     @IBAction func settingButtonPressed(_ sender: UIBarButtonItem) {
     }
 }
+
 extension MainViewController: ViewContorllerDelegate {
     func setNewBackGraundForMainVC(backGround: UIColor, red: Float, green: Float, blue: Float) {
         mainViewColor.backgroundColor = backGround
